@@ -1,6 +1,10 @@
 <?php
 namespace toodle;
 
+/**
+ * Auto classloader
+ * @param $class class name
+ */
 function autoload($class)
 {
     $class = str_replace('toodle\\', '', $class);
