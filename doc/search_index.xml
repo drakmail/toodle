@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<nodes><node><value>autoload()</value><id>db_index.html#::autoload()</id><type>function</type></node><node><value>\toodle\core\Core</value><id>db_core_Core.html#\toodle\core\Core</id><type>class</type></node><node><value>\toodle\core\Core::__construct()</value><id>db_core_Core.html#\toodle\core\Core::__construct()</id><type>method</type></node></nodes>

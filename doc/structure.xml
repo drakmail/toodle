@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<project version="0.16.0" title="">
+  <file path="index.php" hash="12b9ffb9fcb1be0532434c4c0b473945" package="Default">
+    <parse_markers>
+      <error line="1">No DocBlock was found for File index.php</error>
+    </parse_markers>
+    <namespace-alias name="Core">\toodle\core\Core</namespace-alias>
+    <function namespace="toodle" line="8" package="Default">
+      <name>autoload</name>
+      <type>function</type>
+      <docblock>
+        <description>Auto classloader</description>
+        <long-description>
+</long-description>
+        <tag line="4" name="param" description="class name" type="\toodle\$class" variable="$class">
+          <type by_reference="false">\toodle\$class</type>
+        </tag>
+      </docblock>
+      <argument line="8">
+        <name>$class</name>
+        <default/>
+        <type/>
+      </argument>
+    </function>
+  </file>
+  <file path="core/Core.php" hash="c5d37bed3b0d6d10f9e838cc00d46921" package="Default">
+    <parse_markers>
+      <error line="1">No DocBlock was found for File core/Core.php</error>
+    </parse_markers>
+    <class final="false" abstract="false" line="7" namespace="toodle\core" package="Default">
+      <name>Core</name>
+      <extends/>
+      <full_name>\toodle\core\Core</full_name>
+      <docblock>
+        <description>Performs initialization</description>
+        <long-description>
+</long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" line="12" package="Default">
+        <name>__construct</name>
+        <docblock>
+          <description>Doesn't do anything at this moment</description>
+          <long-description>
+</long-description>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <package name="Default"/>
+  <namespace name="toodle">
+    <namespace name="core"/>
+  </namespace>
+  <marker>todo</marker>
+  <marker>fixme</marker>
+</project>
