@@ -16,5 +16,5 @@ spl_autoload_register('\toodle\autoload');
 
 use \toodle\core\Core;
 
-$t = new Core();
+$t = new Core($_GET,$_POST);
 ?>
