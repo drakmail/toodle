@@ -1,4 +1,18 @@
 <?php
+
+/**
+ * TOODLE
+ *
+ * PHP Version 5.3
+ *
+ * @category  Framework
+ * @package   Core
+ * @author    Alexander Maslov <it@delta-z.ru>
+ * @copyright 2011 Alexader Maslov (http://www.delta-z.ru)
+ * @license   http://www.gnu.org/licenses/gpl-3.0.html GPL v3
+ * @link      https://github.com/drakmail/toodle
+ */
+
 namespace toodle\core;
 
 /**
@@ -7,13 +21,17 @@ namespace toodle\core;
 class Core
 {
     /**
-     * @var \array $_GET array
+     * Array of escaped $_GET elements
+     * @var array $_GET array
      */
     private $get;
+
     /**
+     * * Array of escaped $_POST elements
      * @var array $_POST array
      */
     private $post;
+
     /**
      * Initialization of core class
      * @param $get array Get params array
@@ -27,6 +45,7 @@ class Core
     }
 
     /**
+     * Returns class and method to call for given $get array
      * @return array module and action by given $get array
      */
     public function getRoute()
@@ -44,8 +63,9 @@ class Core
     }
 
     /**
-     * @param $key string key of $_GET array
-     * @return string returns key of $_GET array
+     * Returns value of given key of $get array
+     * @param string key of $get array
+     * @return string returns the key of $get array, or empty string if key doesn't exists
      */
     public function getGet($key)
     {
@@ -55,6 +75,7 @@ class Core
     }
 
     /**
+     * Autoescape given array and set it as the internal $get array
      * @param array $get
      */
     private function setGet($get)
@@ -64,8 +85,9 @@ class Core
     }
 
     /**
-     * @param $key string key of $_POST array
-     * @return string returns key of $_POST array
+     * Returns value of given key of $post array
+     * @param string key of $post array
+     * @return string returns key of $post array, or empty string if key doesn't exists
      */
     public function getPost($key)
     {
@@ -75,6 +97,7 @@ class Core
     }
 
     /**
+     * Autoescape given array and set it as the internal $post array
      * @param array $post
      */
     private function setPost($post)

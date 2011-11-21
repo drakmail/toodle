@@ -95,24 +95,255 @@
               Table of Contents
           </div>
 </div>
-<a xmlns:dbx="http://docblox-project.org/xsl/functions" name="top" class="anchor"></a><a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\toodle\core\Core" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\toodle\core\Core<div class="to-top"><a href="#top">jump to top</a></div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" name="top" class="anchor"></a><div id="file-description">
+<p xmlns:dbx="http://docblox-project.org/xsl/functions" class="short-description">TOODLE</p>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="long-description"><p>PHP Version 5.3</p>
+</div>
+</div>
+<dl class="file-info">
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Author</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="mailto:it@delta-z.ru">Alexander Maslov</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Category</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Framework
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Copyright</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">2011 Alexader Maslov (http://www.delta-z.ru)
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">License</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="http://www.gnu.org/licenses/gpl-3.0.html">GPL v3</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Link</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="https://github.com/drakmail/toodle">https://github.com/drakmail/toodle</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Package</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Core
+         
+    </dd>
+</dl>
+<a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\toodle\core\Core" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\toodle\core\Core<div class="to-top"><a href="#top">jump to top</a></div>
 </h2>
 <div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
-<small class="package"><b>Package: </b>Default</small><p class="short-description">Performs initialization</p>
+<small class="package"><b>Package: </b>Default</small><p class="short-description">Performs framework initialization</p>
 <div class="long-description">
 </div>
 <dl class="class-info"></dl>
+<h3>Properties</h3>
+<div>
+<a id="\toodle\core\Core::$get" class="anchor"></a><div class="property private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private">array
+                 <span class="highlight">$get</span>= ''
+                </code><div class="description">
+<p class="short-description">Array of escaped $_GET elements</p>array</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>\toodle\core\array</dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\toodle\core\Core::$post" class="anchor"></a><div class="property private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private">array
+                 <span class="highlight">$post</span>= ''
+                </code><div class="description">
+<p class="short-description">* Array of escaped $_POST elements</p>array</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>\toodle\core\array</dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+</div>
 <h3>Methods</h3>
 <div>
 <a id="\toodle\core\Core::__construct()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
+          \toodle\core\$get $get, \toodle\core\$post $post
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Initialization of core class</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$get</th>
+<td>\toodle\core\$get</td>
+<td><em><p>array Get params array</p></em></td>
+</tr>
+<tr>
+<th>$post</th>
+<td>\toodle\core\$post</td>
+<td><em><p>array Post params array</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\toodle\core\Core::getGet()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getGet</span><span class="nb-faded-text">(
+          \toodle\core\string $key
+          )
+        </span>
+        :
+          \toodle\core\string</code><div class="description"><p class="short_description">Returns value of given key of $get array</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$key</th>
+<td>\toodle\core\string</td>
+<td><em><p>key of $get array</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\toodle\core\string</td>
+<td>returns the key of $get array, or empty string if key doesn't exists</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\toodle\core\Core::getPost()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getPost</span><span class="nb-faded-text">(
+          \toodle\core\string $key
+          )
+        </span>
+        :
+          \toodle\core\string</code><div class="description"><p class="short_description">Returns value of given key of $post array</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$key</th>
+<td>\toodle\core\string</td>
+<td><em><p>key of $post array</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\toodle\core\string</td>
+<td>returns key of $post array, or empty string if key doesn't exists</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\toodle\core\Core::getRoute()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getRoute</span><span class="nb-faded-text">(
           
           )
         </span>
         :
-          void</code><div class="description"><p class="short_description">Doesn't do anything at this moment</p></div>
-<div class="code-tabs"><div class="long-description">
-</div></div>
+          \toodle\core\array</code><div class="description"><p class="short_description">Returns class and method to call for given $get array</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\toodle\core\array</td>
+<td>module and action by given $get array</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\toodle\core\Core::setGet()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">setGet</span><span class="nb-faded-text">(
+          \toodle\core\array $get
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Autoescape given array and set it as the internal $get array</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$get</th>
+<td>\toodle\core\array</td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\toodle\core\Core::setPost()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">setPost</span><span class="nb-faded-text">(
+          \toodle\core\array $post
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Autoescape given array and set it as the internal $post array</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$post</th>
+<td>\toodle\core\array</td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
 <div class="clear"></div>
 </div>
 </div>

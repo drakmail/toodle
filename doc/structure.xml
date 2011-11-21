@@ -1,52 +1,378 @@
 <?xml version="1.0"?>
 <project version="0.16.0" title="">
-  <file path="index.php" hash="12b9ffb9fcb1be0532434c4c0b473945" package="Default">
-    <parse_markers>
-      <error line="1">No DocBlock was found for File index.php</error>
-    </parse_markers>
-    <namespace-alias name="Core">\toodle\core\Core</namespace-alias>
-    <function namespace="toodle" line="8" package="Default">
-      <name>autoload</name>
-      <type>function</type>
-      <docblock>
-        <description>Auto classloader</description>
-        <long-description>
+  <file path="tests/core/CoreTest.php" hash="d5e1e4a90ddad40c1a2678ee26f9676a" package="Test">
+    <docblock>
+      <description>TOODLE</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
 </long-description>
-        <tag line="4" name="param" description="class name" type="\toodle\$class" variable="$class">
-          <type by_reference="false">\toodle\$class</type>
-        </tag>
-      </docblock>
-      <argument line="8">
-        <name>$class</name>
-        <default/>
-        <type/>
-      </argument>
-    </function>
-  </file>
-  <file path="core/Core.php" hash="c5d37bed3b0d6d10f9e838cc00d46921" package="Default">
+      <tag line="3" name="category" description="Framework"/>
+      <tag line="3" name="package" description="Test"/>
+      <tag line="3" name="author" description="Alexander Maslov &lt;it@delta-z.ru&gt;"/>
+      <tag line="3" name="copyright" description="2011 Alexader Maslov (http://www.delta-z.ru)"/>
+      <tag line="3" name="license" description="http://www.gnu.org/licenses/gpl-3.0.html GPL v3"/>
+      <tag line="3" name="link" description="https://github.com/drakmail/toodle" link="https://github.com/drakmail/toodle"/>
+    </docblock>
     <parse_markers>
-      <error line="1">No DocBlock was found for File core/Core.php</error>
+      <critical line="38">No short description for method testRoute</critical>
     </parse_markers>
-    <class final="false" abstract="false" line="7" namespace="toodle\core" package="Default">
-      <name>Core</name>
-      <extends/>
-      <full_name>\toodle\core\Core</full_name>
+    <include type="Require Once" line="16">
+      <name>PHPUnit/Autoload.php</name>
+    </include>
+    <include type="Require Once" line="17">
+      <name>../../core/Core.php</name>
+    </include>
+    <class final="false" abstract="false" line="22" namespace="default" package="Default">
+      <name>CoreTest</name>
+      <extends>\PHPUnit_Framework_TestCase</extends>
+      <full_name>\CoreTest</full_name>
       <docblock>
-        <description>Performs initialization</description>
+        <description>Test class for Core</description>
         <long-description>
 </long-description>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" line="12" package="Default">
-        <name>__construct</name>
+      <method final="false" abstract="false" static="false" visibility="protected" line="27" package="Default">
+        <name>setUp</name>
         <docblock>
-          <description>Doesn't do anything at this moment</description>
+          <description>Setup fixture</description>
+          <long-description>
+</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" line="34" package="Default">
+        <name>tearDown</name>
+        <docblock>
+          <description>Shutdown fixture</description>
+          <long-description>
+</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="44" package="Default">
+        <name>testRoute</name>
+        <docblock>
+          <description/>
+          <long-description>
+</long-description>
+          <tag line="38" name="dataProvider" description="provideParams&#10;Must return array (module,action)"/>
+          <tag line="38" name="param" description="array get array" type="\$get" variable="$get">
+            <type by_reference="false">\$get</type>
+          </tag>
+          <tag line="38" name="param" description="array post array" type="\$post" variable="$post">
+            <type by_reference="false">\$post</type>
+          </tag>
+        </docblock>
+        <argument line="44">
+          <name>$get</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="44">
+          <name>$post</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="58" package="Default">
+        <name>provideParams</name>
+        <docblock>
+          <description>Function, that providing get and post parameters for testRoute function.</description>
+          <long-description>&lt;p&gt;Provides no params, only one param, and many other combinations.&lt;/p&gt;
+</long-description>
+          <tag line="53" name="return" description="2 arrays of $get and $post arrays" type="array">
+            <type by_reference="false">\array</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="tests/core/CoreSuite.php" hash="5724cd6b22a8af0d1653bb1eb6f3b8cc" package="Test">
+    <docblock>
+      <description>TOODLE</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+</long-description>
+      <tag line="3" name="category" description="Framework"/>
+      <tag line="3" name="package" description="Test"/>
+      <tag line="3" name="author" description="Alexander Maslov &lt;it@delta-z.ru&gt;"/>
+      <tag line="3" name="copyright" description="2011 Alexader Maslov (http://www.delta-z.ru)"/>
+      <tag line="3" name="license" description="http://www.gnu.org/licenses/gpl-3.0.html GPL v3"/>
+      <tag line="3" name="link" description="https://github.com/drakmail/toodle" link="https://github.com/drakmail/toodle"/>
+    </docblock>
+    <parse_markers>
+      <critical line="23">No short description for method suite</critical>
+    </parse_markers>
+    <include type="Require Once" line="16">
+      <name>CoreTest.php</name>
+    </include>
+    <class final="false" abstract="false" line="21" namespace="default" package="Default">
+      <name>CoreSuite</name>
+      <extends>\PHPUnit_Framework_TestSuite</extends>
+      <full_name>\CoreSuite</full_name>
+      <docblock>
+        <description>Test Suite for testing Core class</description>
+        <long-description>
+</long-description>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" line="27" package="Default">
+        <name>suite</name>
+        <docblock>
+          <description/>
+          <long-description>
+</long-description>
+          <tag line="23" name="static" description=""/>
+          <tag line="23" name="return" description="" type="\CoreSuite">
+            <type by_reference="false">\CoreSuite</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" line="37" package="Default">
+        <name>setUp</name>
+        <docblock>
+          <description>For future - setup fixtures</description>
+          <long-description>
+</long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" line="44" package="Default">
+        <name>tearDown</name>
+        <docblock>
+          <description>For future - setup fixtures</description>
           <long-description>
 </long-description>
         </docblock>
       </method>
     </class>
   </file>
+  <file path="doc/ajax_search.php" hash="b90b710361713f279b5ed683ea9f4443" package="Search">
+    <docblock>
+      <description>DocBlox</description>
+      <long-description>&lt;p&gt;PHP Version 5&lt;/p&gt;
+</long-description>
+      <tag line="2" name="category" description="DocBlox"/>
+      <tag line="2" name="package" description="Search"/>
+      <tag line="2" name="author" description="Mike van Riel &lt;mike.vanriel@naenius.com&gt;"/>
+      <tag line="2" name="copyright" description="2010-2011 Mike van Riel / Naenius (http://www.naenius.com)"/>
+      <tag line="2" name="license" description="http://www.opensource.org/licenses/mit-license.php MIT"/>
+      <tag line="2" name="link" description="http://docblox-project.org" link="http://docblox-project.org"/>
+    </docblock>
+  </file>
+  <file path="index.php" hash="25067d6569d23a43ebb119747038f284" package="Bootstrap">
+    <docblock>
+      <description>TOODLE</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+</long-description>
+      <tag line="2" name="category" description="Site"/>
+      <tag line="2" name="package" description="Bootstrap"/>
+      <tag line="2" name="author" description="Alexander Maslov &lt;it@delta-z.ru&gt;"/>
+      <tag line="2" name="copyright" description="2011 Alexader Maslov (http://www.delta-z.ru)"/>
+      <tag line="2" name="license" description="http://www.gnu.org/licenses/gpl-3.0.html GPL v3"/>
+      <tag line="2" name="link" description="https://github.com/drakmail/toodle" link="https://github.com/drakmail/toodle"/>
+    </docblock>
+    <namespace-alias name="Core">\toodle\core\Core</namespace-alias>
+    <function namespace="toodle" line="21" package="Bootstrap">
+      <name>autoload</name>
+      <type>function</type>
+      <docblock>
+        <description>Auto classloader</description>
+        <long-description>
+</long-description>
+        <tag line="17" name="param" description="class name" type="\toodle\$class" variable="$class">
+          <type by_reference="false">\toodle\$class</type>
+        </tag>
+      </docblock>
+      <argument line="21">
+        <name>$class</name>
+        <default/>
+        <type/>
+      </argument>
+    </function>
+  </file>
+  <file path="core/Output.php" hash="b51c739295d622b1a603c73d103a7fc5" package="Core">
+    <docblock>
+      <description>TOODLE</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+</long-description>
+      <tag line="2" name="category" description="Framework"/>
+      <tag line="2" name="package" description="Core"/>
+      <tag line="2" name="author" description="Alexander Maslov &lt;it@delta-z.ru&gt;"/>
+      <tag line="2" name="copyright" description="2011 Alexader Maslov (http://www.delta-z.ru)"/>
+      <tag line="2" name="license" description="http://www.gnu.org/licenses/gpl-3.0.html GPL v3"/>
+      <tag line="2" name="link" description="https://github.com/drakmail/toodle" link="https://github.com/drakmail/toodle"/>
+    </docblock>
+  </file>
+  <file path="core/Core.php" hash="385dec96a9c94a83b8f233a78115fe2d" package="Core">
+    <docblock>
+      <description>TOODLE</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+</long-description>
+      <tag line="3" name="category" description="Framework"/>
+      <tag line="3" name="package" description="Core"/>
+      <tag line="3" name="author" description="Alexander Maslov &lt;it@delta-z.ru&gt;"/>
+      <tag line="3" name="copyright" description="2011 Alexader Maslov (http://www.delta-z.ru)"/>
+      <tag line="3" name="license" description="http://www.gnu.org/licenses/gpl-3.0.html GPL v3"/>
+      <tag line="3" name="link" description="https://github.com/drakmail/toodle" link="https://github.com/drakmail/toodle"/>
+    </docblock>
+    <markers>
+      <todo line="83">Add autoescape for this</todo>
+      <todo line="105">Add autoescape for this</todo>
+    </markers>
+    <class final="false" abstract="false" line="21" namespace="toodle\core" package="Default">
+      <name>Core</name>
+      <extends/>
+      <full_name>\toodle\core\Core</full_name>
+      <docblock>
+        <description>Performs framework initialization</description>
+        <long-description>
+</long-description>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="27" package="Default">
+        <name>$get</name>
+        <default/>
+        <docblock>
+          <description>Array of escaped $_GET elements</description>
+          <long-description>
+</long-description>
+          <tag line="23" name="var" description="array" type="array">
+            <type by_reference="false">\toodle\core\array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="33" package="Default">
+        <name>$post</name>
+        <default/>
+        <docblock>
+          <description>* Array of escaped $_POST elements</description>
+          <long-description>
+</long-description>
+          <tag line="29" name="var" description="array" type="array">
+            <type by_reference="false">\toodle\core\array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" line="40" package="Default">
+        <name>__construct</name>
+        <docblock>
+          <description>Initialization of core class</description>
+          <long-description>
+</long-description>
+          <tag line="35" name="param" description="array Get params array" type="\toodle\core\$get" variable="$get">
+            <type by_reference="false">\toodle\core\$get</type>
+          </tag>
+          <tag line="35" name="param" description="array Post params array" type="\toodle\core\$post" variable="$post">
+            <type by_reference="false">\toodle\core\$post</type>
+          </tag>
+        </docblock>
+        <argument line="40">
+          <name>$get</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="40">
+          <name>$post</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="51" package="Default">
+        <name>getRoute</name>
+        <docblock>
+          <description>Returns class and method to call for given $get array</description>
+          <long-description>
+</long-description>
+          <tag line="47" name="return" description="module and action by given $get array" type="array">
+            <type by_reference="false">\toodle\core\array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="70" package="Default">
+        <name>getGet</name>
+        <docblock>
+          <description>Returns value of given key of $get array</description>
+          <long-description>
+</long-description>
+          <tag line="65" name="param" description="key of $get array" type="string" variable="$key">
+            <type by_reference="false">\toodle\core\string</type>
+          </tag>
+          <tag line="65" name="return" description="returns the key of $get array, or empty string if key doesn't exists" type="string">
+            <type by_reference="false">\toodle\core\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$key</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" line="81" package="Default">
+        <name>setGet</name>
+        <docblock>
+          <description>Autoescape given array and set it as the internal $get array</description>
+          <long-description>
+</long-description>
+          <tag line="77" name="param" description="" type="array" variable="$get">
+            <type by_reference="false">\toodle\core\array</type>
+          </tag>
+        </docblock>
+        <argument line="81">
+          <name>$get</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="92" package="Default">
+        <name>getPost</name>
+        <docblock>
+          <description>Returns value of given key of $post array</description>
+          <long-description>
+</long-description>
+          <tag line="87" name="param" description="key of $post array" type="string" variable="$key">
+            <type by_reference="false">\toodle\core\string</type>
+          </tag>
+          <tag line="87" name="return" description="returns key of $post array, or empty string if key doesn't exists" type="string">
+            <type by_reference="false">\toodle\core\string</type>
+          </tag>
+        </docblock>
+        <argument line="92">
+          <name>$key</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" line="103" package="Default">
+        <name>setPost</name>
+        <docblock>
+          <description>Autoescape given array and set it as the internal $post array</description>
+          <long-description>
+</long-description>
+          <tag line="99" name="param" description="" type="array" variable="$post">
+            <type by_reference="false">\toodle\core\array</type>
+          </tag>
+        </docblock>
+        <argument line="103">
+          <name>$post</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="core/Database.php" hash="b51c739295d622b1a603c73d103a7fc5" package="Core">
+    <docblock>
+      <description>TOODLE</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+</long-description>
+      <tag line="2" name="category" description="Framework"/>
+      <tag line="2" name="package" description="Core"/>
+      <tag line="2" name="author" description="Alexander Maslov &lt;it@delta-z.ru&gt;"/>
+      <tag line="2" name="copyright" description="2011 Alexader Maslov (http://www.delta-z.ru)"/>
+      <tag line="2" name="license" description="http://www.gnu.org/licenses/gpl-3.0.html GPL v3"/>
+      <tag line="2" name="link" description="https://github.com/drakmail/toodle" link="https://github.com/drakmail/toodle"/>
+    </docblock>
+  </file>
+  <package name="Bootstrap"/>
+  <package name="Core"/>
   <package name="Default"/>
+  <package name="Search"/>
+  <package name="Test"/>
+  <namespace name="default"/>
   <namespace name="toodle">
     <namespace name="core"/>
   </namespace>
