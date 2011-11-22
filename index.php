@@ -12,6 +12,9 @@
  * @link      https://github.com/drakmail/toodle
  */
 
+// TODO: Rewrite as class!
+// TODO: Write unit test
+
 namespace toodle;
 
 /**
@@ -29,5 +32,21 @@ spl_autoload_register('\toodle\autoload');
 
 use \toodle\core\Core;
 
-$t = new Core($_GET,$_POST);
+class Index
+{
+    /**
+     * @var \toodle\core\Core
+     */
+    private $core;
+
+    /**
+     * Init core framework parts
+     */
+    public function __construct()
+    {
+        $this->core = new Core($_GET,$_POST);
+    }
+}
+
+new Index();
 ?>

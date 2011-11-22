@@ -14,6 +14,7 @@
  */
 
 namespace toodle\core;
+require_once "Security.php";
 
 /**
  * Performs framework initialization
@@ -80,8 +81,10 @@ class Core
      */
     private function setGet($get)
     {
-        //TODO: Add autoescape for this
-        $this->get = $get;
+        foreach ($get as $key => $value)
+        {
+            $this->get[$key] = Security::safeStr($value);
+        }
     }
 
     /**
@@ -102,8 +105,10 @@ class Core
      */
     private function setPost($post)
     {
-        //TODO: Add autoescape for this
-        $this->post = $post;
+        foreach ($post as $key => $value)
+        {
+            $this->post[$key] = Security::safeStr($value);
+        }
     }
 }
 
