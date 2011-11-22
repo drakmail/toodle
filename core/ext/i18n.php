@@ -189,7 +189,7 @@ class H2o_I18n {
             $this->setupGettext();
 
         if (!class_exists('H2o_Lexer', false))
-            require H2O_ROOT.'h2o/parser.php';
+            require H2O_ROOT . 'h2o/parser.php';
         # get all tempaltes
         $templates = $this->getTemplates($this->searchpath, $this->extensions, array(dirname(dirname($this->gettext_path))));
         # Get all locales in translation path

@@ -42,7 +42,15 @@ class Core
     {
         $this->setGet($get);
         $this->setPost($post);
-        echo "Initializing engine...";
+        $route = $this->getRoute();
+        /* Load selected module controller */
+        $module = $route['module'];
+        require_once "contrib/$module/controller/$module.php";
+        $moduleControllerName = ucfirst($module).'Controller';
+        $controller = new $moduleControllerName($module);
+        $controllerMethod = 'run__'.$route['action'];
+        $page = $controller->$controllerMethod();
+        echo $page;
     }
 
     /**

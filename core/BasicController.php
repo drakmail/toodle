@@ -19,13 +19,11 @@ namespace toodle\core;
  */
 abstract class BasicController
 {
+    protected $module_name;
 
-    /**
-     * Main method of controller.
-     * @abstract
-     *
-     */
-    abstract public function run();
+    public function __construct($module_name) {
+        $this->module_name = $module_name;
+    }
 
     /**
      * Load model by name
@@ -41,11 +39,14 @@ abstract class BasicController
     /**
      * Load view by name
      * @param string $name
-     * @return View
+     * @param array $params
+     * @return string Page
      */
-    protected function loadView($name)
+    protected function loadView($name,$params)
     {
-
+        require_once('h2o.php');
+        $h2o = new \h2o('contrib/' . $this->module_name . '/views/' . $name);
+        return $h2o->render(compact('params'));
     }
 }
 
