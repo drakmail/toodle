@@ -15,11 +15,21 @@
 namespace toodle\core;
 
 /**
- * Base module class
+ * Base module class. Contains links to controller, model and view. Provides interface to interaction between
+ * Controller, Model and View and compounds it together.
  */
 class Module
 {
 
+    /**
+     * Load controller by action
+     * @param string $action
+     * @return Controller
+     */
+    protected static function loadController($action)
+    {
+
+    }
 }
 
 ?>

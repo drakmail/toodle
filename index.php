@@ -12,8 +12,7 @@
  * @link      https://github.com/drakmail/toodle
  */
 
-// TODO: Rewrite as class!
-// TODO: Write unit test
+// TODO: Write unit test when it could be done...
 
 namespace toodle;
 
