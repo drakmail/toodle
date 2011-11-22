@@ -2,8 +2,9 @@ TOODLE (Template engine + Oop + Orm Delta-z's Engine) is are lightweight PHP fra
 
 Features of toodle:
 
-* Unit tests
-* Documentation
-* OOP
+* Django-like template engine (H20, http://www.h2o-template.org/)
+* Unit tests (PHPUnit)
+* Documentation (Dockblox)
+* OOP (PHP 5.3)
 * MVC
 * OpenSource
