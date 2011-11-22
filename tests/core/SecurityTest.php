@@ -25,9 +25,9 @@ class SecurityTest extends PHPUnit_Framework_TestCase
      * @dataProvider provideStringParams
      * @param string $string
      */
-    public function testStringEscaping($string)
+    public function testStringEscaping($result,$string)
     {
-        $this->assertEquals(htmlspecialchars($string),\toodle\core\Security::safeStr($string));
+        $this->assertEquals($result,\toodle\core\Security::safeStr($string));
     }
 
     /**
@@ -47,13 +47,13 @@ class SecurityTest extends PHPUnit_Framework_TestCase
     public function provideStringParams()
     {
         return array (
-            array(''),
-            array('test'),
-            array('проверка'),
-            array('test_проверка'),
-            array('a\b\c\d'),
-            array('<b>Some Html Tags</b>'),
-            array('<a href="#"><img src="test.png" alt="more HTML tags" title="O_O"></a>')
+            array('',''),
+            array('test','test'),
+            array('проверка','проверка'),
+            array('test_проверка','test_проверка'),
+            array('a\b\c\d','a\b\c\d'),
+            array('&lt;b&gt;Some Html Tags&lt;/b&gt;','<b>Some Html Tags</b>'),
+            array('&lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;test.png&quot; alt=&quot;more HTML tags&quot; title=&quot;O_O&quot;&gt;&lt;/a&gt;','<a href="#"><img src="test.png" alt="more HTML tags" title="O_O"></a>')
         );
     }
 
