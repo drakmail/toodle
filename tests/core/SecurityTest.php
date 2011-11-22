@@ -23,6 +23,7 @@ class SecurityTest extends PHPUnit_Framework_TestCase
     /**
      * Test user input escaping
      * @dataProvider provideStringParams
+     * @param string $result expected result
      * @param string $string
      */
     public function testStringEscaping($result,$string)
