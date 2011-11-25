@@ -19,10 +19,41 @@ namespace toodle\core;
  */
 abstract class BasicController
 {
+    /**
+     * @var Name of module
+     */
     protected $module_name;
+    /**
+     * @var "Global" module params
+     */
+    protected $view_params;
 
+    /**
+     * @param $module_name Name of module
+     */
     public function __construct($module_name) {
         $this->module_name = $module_name;
+        $this->setVar('name',$module_name);
+        $this->init();
+    }
+
+    /**
+     * Performs after-creation initialization
+     * @return mixed
+     */
+    public function init()
+    {
+        return;
+    }
+
+    /**
+     * Set view variable name and value
+     * @param string $name
+     * @param string $value
+     */
+    protected function setVar($name,$value)
+    {
+        $this->view_params[$name] = $value;
     }
 
     /**
@@ -33,7 +64,10 @@ abstract class BasicController
      */
     protected function loadModel($name)
     {
-
+        $model = $name;
+        require_once "contrib/".$this->module_name."/models/$model.php";
+        $modelName = ucfirst($model);
+        return new $modelName();
     }
 
     /**
@@ -46,7 +80,8 @@ abstract class BasicController
     {
         require_once('h2o.php');
         $h2o = new \h2o('contrib/' . $this->module_name . '/views/' . $name);
-        return $h2o->render(compact('params'));
+        $module = $this->view_params;
+        return $h2o->render(compact('params','module'));
     }
 }
 

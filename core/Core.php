@@ -50,6 +50,7 @@ class Core
         $controller = new $moduleControllerName($module);
         $controllerMethod = 'run__'.$route['action'];
         $page = $controller->$controllerMethod();
+        //TODO: out page to OutputController...
         echo $page;
     }
 
