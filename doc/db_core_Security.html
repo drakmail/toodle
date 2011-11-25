@@ -77,7 +77,7 @@
       });
 
       
-    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">index.php</h1>
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">core/Security.php</h1>
 <div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
 <div id="file-nav-options">
               Show:
@@ -87,7 +87,7 @@
 <ul id="file-nav"><li>
 <a href="#classes"><img src="images/icons/class.png" height="14">
                           Classes
-                      </a><ul><li><a href="#%5Ctoodle%5CIndex">\toodle\Index</a></li></ul>
+                      </a><ul><li><a href="#%5Ctoodle%5Ccore%5CSecurity">\toodle\core\Security</a></li></ul>
 </li></ul>
 <div style="clear: left;"></div>
 </div>
@@ -107,7 +107,7 @@
          
     </dd>
 <dt xmlns:dbx="http://docblox-project.org/xsl/functions">Category</dt>
-<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Site
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Framework
          
     </dd>
 <dt xmlns:dbx="http://docblox-project.org/xsl/functions">Copyright</dt>
@@ -125,19 +125,28 @@
          
     </dd>
 <dt xmlns:dbx="http://docblox-project.org/xsl/functions">Package</dt>
-<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Bootstrap
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Core
          
     </dd>
 </dl>
-<a name="functions" class="anchor"></a><h2>Functions</h2>
+<a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\toodle\core\Security" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\toodle\core\Security<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
+<small class="package"><b>Package: </b>Default</small><p class="short-description">Security utils</p>
+<div class="long-description">
+</div>
+<dl class="class-info"></dl>
+<h3>Methods</h3>
 <div>
-<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::autoload()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">autoload</span><span class="nb-faded-text">(
-          \toodle\$class $class
+<a id="\toodle\core\Security::safeFloat()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">safeFloat</span><span class="nb-faded-text">(
+          \toodle\core\float $float
           )
         </span>
         :
-          void</code><div class="description"><p class="short_description">Auto classloader</p></div>
+          \toodle\core\string</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Returns unified float for DB insertion or other things. Doesn't depend on locale</p>
+</div>
 <div class="code-tabs">
 <div class="long-description">
 </div>
@@ -148,48 +157,71 @@
 <th>Description</th>
 </tr></thead>
 <tr>
-<th>$class</th>
-<td>\toodle\$class</td>
-<td><em><p>class name</p></em></td>
+<th>$float</th>
+<td>\toodle\core\float</td>
+<td><em></em></td>
 </tr>
 </table>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\toodle\Index" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\toodle\Index<div class="to-top"><a href="#top">jump to top</a></div>
-</h2>
-<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
-<small class="package"><b>Package: </b>Default</small><dl class="class-info"></dl>
-<h3>Properties</h3>
-<div>
-<a id="\toodle\Index::$core" class="anchor"></a><div class="property private">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private">\toodle\core\Core
-                 <span class="highlight">$core</span>= ''
-                </code><div class="description">
-<p class="short-description"></p></div>
-<div class="code-tabs">
-<div class="long-description">
-</div>
-<strong>Details</strong><dl class="property-info">
-<dt>Type</dt>
-<dd><a href="db_core_Core.html#%5Ctoodle%5Ccore%5CCore">\toodle\core\Core</a></dd>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\toodle\core\string</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Static</dt>
+<dd>
+         
+    </dd>
 </dl>
 </div>
 <div class="clear"></div>
 </div>
-</div>
-<h3>Methods</h3>
-<div>
-<a id="\toodle\Index::__construct()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
-          
+<a id="\toodle\core\Security::safeStr()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">safeStr</span><span class="nb-faded-text">(
+          \toodle\core\string $string
           )
         </span>
         :
-          void</code><div class="description"><p class="short_description">Init core framework parts</p></div>
-<div class="code-tabs"><div class="long-description">
-</div></div>
+          \toodle\core\string</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Returns escaped string for user-content insertion</p>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$string</th>
+<td>\toodle\core\string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\toodle\core\string</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Static</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
 <div class="clear"></div>
 </div>
 </div>
