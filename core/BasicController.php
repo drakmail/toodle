@@ -31,20 +31,28 @@ abstract class BasicController
     /**
      * @param $module_name Name of module
      */
-    public function __construct($module_name) {
+    public function __construct($module_name)
+    {
         $this->module_name = $module_name;
         $this->setVar('name',$module_name);
+        $this->setupORM();
         $this->init();
+    }
+
+    /**
+     * Initialize ORM
+     */
+    private function setupORM()
+    {
+        require "RedBeanORM.php";
+        ORM::setup("sqlite:db/toodle.db");
     }
 
     /**
      * Performs after-creation initialization
      * @return mixed
      */
-    public function init()
-    {
-        return;
-    }
+    abstract public function init();
 
     /**
      * Set view variable name and value

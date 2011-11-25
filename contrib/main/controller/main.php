@@ -3,7 +3,10 @@
  * Controller for main part
  */
 
-class MainController extends \toodle\core\BasicController
+use toodle\core\BasicController;
+use toodle\core\ORM;
+
+class MainController extends BasicController
 {
     /**
      * Performs "global" variables initialization and, maybe, something other stuff
@@ -11,6 +14,9 @@ class MainController extends \toodle\core\BasicController
     public function init()
     {
         $this->setVar('login','admin');
+//        $test = ORM::dispense('test');
+//        $test->name = 'toodle';
+//        ORM::store($test);
     }
 
     public function run__index()
