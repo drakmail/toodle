@@ -29,11 +29,18 @@ abstract class BasicController
     protected $view_params;
 
     /**
-     * @param $module_name Name of module
+     * @var request array
      */
-    public function __construct($module_name)
+    private $request;
+
+    /**
+     * @param $module_name Name of module
+     * @param $request Request array
+     */
+    public function __construct($module_name,$request)
     {
         $this->module_name = $module_name;
+        $this->request = $request;
         $this->setVar('name',$module_name);
         $this->setupORM();
         $this->init();
@@ -75,7 +82,7 @@ abstract class BasicController
         $model = $name;
         require_once "contrib/".$this->module_name."/models/$model.php";
         $modelName = ucfirst($model);
-        return new $modelName();
+        return new $modelName($this->request);
     }
 
     /**

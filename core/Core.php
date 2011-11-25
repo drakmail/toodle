@@ -34,6 +34,12 @@ class Core
     private $post;
 
     /**
+     * Request array (get and post variables)
+     * @var
+     */
+    private $request;
+
+    /**
      * Initialization of core class
      * @param $get array Get params array
      * @param $post array Post params array
@@ -42,12 +48,13 @@ class Core
     {
         $this->setGet($get);
         $this->setPost($post);
+        $this->initRequest();
         $route = $this->getRoute();
         /* Load selected module controller */
         $module = $route['module'];
         require_once "contrib/$module/controller/$module.php";
         $moduleControllerName = ucfirst($module).'Controller';
-        $controller = new $moduleControllerName($module);
+        $controller = new $moduleControllerName($module,$this->getRequestArray());
         $controllerMethod = 'run__'.$route['action'];
         $page = $controller->$controllerMethod();
         //TODO: out page to OutputController...
@@ -118,6 +125,25 @@ class Core
         {
             $this->post[$key] = Security::safeStr($value);
         }
+    }
+
+    /**
+     * Initialize request array
+     */
+    private function initRequest()
+    {
+        if ($this->get == NULL) $this->get=array();
+        if ($this->post == NULL) $this->post=array();
+        $this->request = array_merge($this->get,$this->post);
+    }
+
+    /**
+     * Return request array
+     * @return mixed
+     */
+    public function getRequestArray()
+    {
+        return $this->request;
     }
 }
 
