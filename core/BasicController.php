@@ -72,16 +72,18 @@ abstract class BasicController
     }
 
     /**
-     * Load model by name
+     * Load model by name (must begin with slash (ex. "/model" or "type/model")
      * @static
      * @param string $name
      * @return Model
      */
     protected function loadModel($name)
     {
-        $model = $name;
-        require_once "contrib/".$this->module_name."/models/$model.php";
-        $modelName = ucfirst($model);
+        $model = explode('/',$name);
+        $model_path = $model[0];
+        $model_name = $model[1];
+        require_once "contrib/".$this->module_name."/models/$model_path/$model_name.php";
+        $modelName = ucfirst($model_name);
         return new $modelName($this->request);
     }
 
