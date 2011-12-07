@@ -27,6 +27,7 @@ function autoload($class)
     // TODO: Khm... fix this :)
     if ($class == "H2o_Parser") return;
     if ($class == "H2o_Lexer") return;
+    if ($class == 'toodle\core\ReflectionMethod') return;
     if (strpos($class,'Model_') === 0) return;
     $class = str_replace('toodle\\', '', $class);
     $class = str_replace('\\', '/', $class) . '.php';

@@ -55,9 +55,10 @@ class Core
         require_once "contrib/$module/controller/$module.php";
         $moduleControllerName = ucfirst($module).'Controller';
         $controller = new $moduleControllerName($module,$this->getRequestArray());
-        $controllerMethod = 'run__'.$route['action'];
-        $page = $controller->$controllerMethod();
-        //TODO: out page to OutputController...
+        $routes = $controller->searchRoute($_SERVER['REQUEST_URI']);
+        $method = $routes['method'];
+        $params = $routes['params'];
+        $page = $controller->__named($method,$params);
         echo $page;
     }
 
@@ -72,10 +73,7 @@ class Core
         {
             $return['module'] = 'main';
         } else $return['module'] = $this->getGet('page');
-        if ($this->getGet('action') == "")
-        {
-            $return['action'] = 'index';
-        } else $return['action'] = $this->getGet('action');
+        //TODO: fix modules work
         return $return;
     }
 
