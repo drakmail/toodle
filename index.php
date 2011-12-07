@@ -38,6 +38,9 @@ spl_autoload_register('\toodle\autoload');
 
 use \toodle\core\Core;
 
+/**
+ * Bootstrap class
+ */
 class Index
 {
     /**
@@ -50,7 +53,7 @@ class Index
      */
     public function __construct()
     {
-        $this->core = new Core($_GET,$_POST);
+        $this->core = new Core($_GET,$_POST,$_SERVER['REQUEST_URI']);
     }
 }
 

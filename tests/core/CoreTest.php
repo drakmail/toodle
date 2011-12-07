@@ -47,7 +47,7 @@ class CoreTest extends PHPUnit_Framework_TestCase
         if (!isset($get['page'])) $get['page'] = null;
         if (!isset($get['action'])) $get['action'] = null;
         $this->assertEquals(array('module'=>$get['page'] == '' ? 'main' : $get['page'],
-            'action'=>$get['action'] == '' ? 'index' : $get['action']),$core->getRoute());
+            'action'=>$get['action'] == '' ? 'index' : $get['action']),$core->getModule());
     }
 
     /**

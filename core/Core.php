@@ -40,40 +40,52 @@ class Core
     private $request;
 
     /**
+     * @var string URL Path
+     */
+    private $path;
+
+    /**
      * Initialization of core class
      * @param $get array Get params array
      * @param $post array Post params array
+     * @param $path array URL Path
      */
-    public function __construct($get,$post)
+    public function __construct($get,$post,$path)
     {
         $this->setGet($get);
         $this->setPost($post);
+        $this->path = $path;
         $this->initRequest();
-        $route = $this->getRoute();
         /* Load selected module controller */
-        $module = $route['module'];
+        $module = $this->getModule();
         require_once "contrib/$module/controller/$module.php";
         $moduleControllerName = ucfirst($module).'Controller';
         $controller = new $moduleControllerName($module,$this->getRequestArray());
-        $routes = $controller->searchRoute($_SERVER['REQUEST_URI']);
+        $routes = $controller->searchRoute($path);
         $method = $routes['method'];
         $params = $routes['params'];
         $page = $controller->__named($method,$params);
-        echo $page;
+        print $page;
     }
 
     /**
      * Returns class and method to call for given $get array
      * @return array module and action by given $get array
      */
-    public function getRoute()
+    public function getModule()
     {
-        $return = array ('module'=>'','action'=>'');
-        if ($this->getGet('page') == "")
+        $return = '';
+        $first_part = explode('/',$this->path,2);
+        $first_part = $first_part[1];
+        $first_part = str_replace('/','',$first_part);
+        if ($first_part == "" || substr($first_part,-1) != "~")
         {
-            $return['module'] = 'main';
-        } else $return['module'] = $this->getGet('page');
-        //TODO: fix modules work
+            $return = 'main';
+        } else {
+            if (substr($first_part,-1) == "~") {
+                return substr($first_part,0,-1);
+            }
+        }
         return $return;
     }
 
