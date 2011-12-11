@@ -13,21 +13,6 @@ class MainController extends BasicController
     public function init()
     {
         $this->setVar('login','admin');
-//        $test = ORM::dispense('test');
-//        $test->name = 'toodle';
-//        ORM::store($test);
-    }
-
-    public function run__index()
-    {
-        $params = array('title'=>array('test'=>'Test, world!','hello'=>'Hello, world!'));
-        return $this->loadView('index.html',$params);
-    }
-
-    public function run__item($number)
-    {
-        $params = array('NUM'=>'number: '.$number);
-        return $this->loadView('number.html',$params);
     }
 
     /**
@@ -40,6 +25,18 @@ class MainController extends BasicController
         $routes['/test/'] = 'run__index';
         $routes['/item/(?P<number>\d+)'] = 'run__item';
         return $routes;
+    }
+
+    public function run__index()
+    {
+        $params = array('title'=>array('test'=>'Test, world!','hello'=>'Hello, world!'));
+        return $this->loadView('index.html',$params);
+    }
+
+    public function run__item($number)
+    {
+        $params = array('NUM'=>'number: '.$number);
+        return $this->loadView('number.html',$params);
     }
 }
 ?>
