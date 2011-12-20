@@ -24,7 +24,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . './h2o');
  */
 function autoload($class)
 {
-    // TODO: Khm... fix this :)
+    // Some dirty (maybe not?) hacks to prevent autoloading some classes.
     if ($class == "H2o_Parser") return;
     if ($class == "H2o_Lexer") return;
     if ($class == 'toodle\core\ReflectionMethod') return;
