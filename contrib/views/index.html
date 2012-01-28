@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<p>This template extends base.html. <a href="/login/">Login</a> is {{ module.user | default "Анонимус" }}</p>
+
+<p>Also, you can always check <a href="/number/100500/">"number page"</a></p>
+
+<p><a href="/init/">Инициализировать базу данных, создав суперпользователя О_о?</a></p>
+{% endblock %}

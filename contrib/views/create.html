@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Создание суперпользователя{% endblock %}
+
+{% block content %}
+<h1>Создание суперпользователя</h1>
+
+<p>
+  <strong>Результат:</strong>
+  {% if params.result %}
+    успешно!
+  {% else %}
+    ошибка.
+  {% endif %}
+</p>
+{% endblock %} 

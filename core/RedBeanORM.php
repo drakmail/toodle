@@ -3106,7 +3106,7 @@ where table_schema = 'public'" );
     }
 }
 
-namespace toodle\core {
+namespace core {
 
     class ORM extends \RedBean_Facade
     {

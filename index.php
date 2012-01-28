@@ -14,48 +14,34 @@
 
 // TODO: Write unit test when it could be done...
 
-namespace toodle;
+namespace {
+  use core\Core;
+  
+  set_include_path(get_include_path() . PATH_SEPARATOR . './core/h2o');
+  function __autoload($className) {
+      @include(__DIR__ . "/" . str_replace('\\','/',$className) . ".php");
+  }
 
-set_include_path(get_include_path() . PATH_SEPARATOR . './h2o');
+  /**
+  * Bootstrap class
+  */
+  class Index
+  {
+      /**
+      * @var core\Core
+      */
+      private $core;
 
-/**
- * Auto classloader
- * @param $class class name
- */
-function autoload($class)
-{
-    // Some dirty (maybe not?) hacks to prevent autoloading some classes.
-    if ($class == "H2o_Parser") return;
-    if ($class == "H2o_Lexer") return;
-    if ($class == 'toodle\core\ReflectionMethod') return;
-    if (strpos($class,'Model_') === 0) return;
-    $class = str_replace('toodle\\', '', $class);
-    $class = str_replace('\\', '/', $class) . '.php';
-    require_once($class);
+      /**
+      * Init core framework parts
+      */
+      public function __construct()
+      {
+          $this->core = new Core($_GET,$_POST,$_SERVER['REQUEST_URI']);
+      }
+  }
+
+  new Index();
+
 }
-
-spl_autoload_register('\toodle\autoload');
-
-use \toodle\core\Core;
-
-/**
- * Bootstrap class
- */
-class Index
-{
-    /**
-     * @var \toodle\core\Core
-     */
-    private $core;
-
-    /**
-     * Init core framework parts
-     */
-    public function __construct()
-    {
-        $this->core = new Core($_GET,$_POST,$_SERVER['REQUEST_URI']);
-    }
-}
-
-new Index();
 ?>

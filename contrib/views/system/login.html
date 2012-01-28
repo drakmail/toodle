@@ -1,0 +1,14 @@
+{% extends "../base.html" %} 
+
+{% block title %}Авторизация{% endblock %}
+
+{% block content %}
+
+{{ params.error }}
+
+<form action="/login/check/" method="POST">
+<p>Введите Ваш логин и пароль: <input type="text" name="login"> <input type="password" name="password"></p>
+<p><input type="submit" value="Войти"></p>
+</form>
+
+{% endblock %}

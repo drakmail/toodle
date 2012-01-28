@@ -12,17 +12,13 @@
  * @link      https://github.com/drakmail/toodle
  */
 
-namespace toodle\core;
+namespace core;
 
 /**
  *
  */
 abstract class BasicController
 {
-    /**
-     * @var Name of module
-     */
-    protected $module_name;
     /**
      * @var "Global" module params
      */
@@ -42,23 +38,11 @@ abstract class BasicController
      * @param $module_name Name of module
      * @param $request Request array
      */
-    public function __construct($module_name,$request)
+    public function __construct($request)
     {
-        $this->module_name = $module_name;
         $this->request = $request;
-        $this->setVar('name',$module_name);
-        $this->setupORM();
         $this->init();
         $this->routes = $this->initRoutes();
-    }
-
-    /**
-     * Initialize ORM
-     */
-    private function setupORM()
-    {
-        require "RedBeanORM.php";
-        ORM::setup("sqlite:db/toodle.db");
     }
 
     /**
@@ -72,22 +56,6 @@ abstract class BasicController
      *  Performs routes initialization
      */
     abstract protected function initRoutes();
-
-    /**
-     * @param string $path URL
-     * @return array array of method and params (array('method'=>$method, 'params'=>$matches))
-     */
-    public function searchRoute($path) {
-        $result = array ('method'=>'not_found','params'=>array('path'=>$path));
-        foreach ($this->routes as $route => $method) {
-            $route = str_replace('/','\/',$route);
-            $route = '/'.$route.'/';
-            if (preg_match($route,$path,$matches)) {
-                $result = array('method'=>$method, 'params'=>$matches);
-            }
-        }
-        return $result;
-    }
 
     /**
      * Set view variable name and value
@@ -110,8 +78,8 @@ abstract class BasicController
         $model = explode('/',$name);
         $model_path = $model[0];
         $model_name = $model[1];
-        require_once "contrib/".$this->module_name."/models/$model_path/$model_name.php";
-        $modelName = ucfirst($model_name);
+        require_once "contrib/models/$model_path/$model_name.php";
+        $modelName = ucfirst($model_path).ucfirst($model_name);
         return new $modelName($this->request);
     }
 
@@ -124,7 +92,7 @@ abstract class BasicController
     protected function loadView($name,$params)
     {
         require_once('h2o.php');
-        $h2o = new \h2o('contrib/' . $this->module_name . '/views/' . $name);
+        $h2o = new \h2o('contrib/views/' . $name);
         $module = $this->view_params;
         return $h2o->render(compact('params','module'));
     }

@@ -12,7 +12,7 @@
  * @link      https://github.com/drakmail/toodle
  */
 
-namespace toodle\core;
+namespace core;
 
 /**
  * Security utils

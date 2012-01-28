@@ -13,7 +13,7 @@
  * @link      https://github.com/drakmail/toodle
  */
 
-namespace toodle\core;
+namespace core;
 require_once "Security.php";
 
 /**
@@ -56,16 +56,20 @@ class Core
         $this->setPost($post);
         $this->path = $path;
         $this->initRequest();
-        /* Load selected module controller */
-        $module = $this->getModule();
-        require_once "contrib/$module/controller/$module.php";
-        $moduleControllerName = ucfirst($module).'Controller';
-        $controller = new $moduleControllerName($module,$this->getRequestArray());
-        $routes = $controller->searchRoute($path);
-        $method = $routes['method'];
-        $params = $routes['params'];
-        $page = $controller->__named($method,$params);
-        print $page;
+        /* Load main controller */
+        //$module = $this->getModule();
+        require_once "contrib/site.php";
+        //$moduleControllerName = ucfirst($module).'Controller';
+        //$controller = new $moduleControllerName($module,$this->getRequestArray());
+        //$method = $routes['method'];
+        //$params = $routes['params'];
+        //$page = $controller->__named($method,$params);
+        $site = new \contrib\MainSite($this->getRequestArray());
+        $route = $site->searchRoute($path);
+        $function = $route['method']['function'];
+        $module   = $route['method']['module'];
+        $params   = $route['params'];
+        print $site->modules[$module]->__named($function,$params);
     }
 
     /**

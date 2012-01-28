@@ -1,12 +1,12 @@
 <?php
 
-use toodle\core\BasicModel;
-use toodle\core\ORM;
+use core\BasicModel;
+use core\ORM;
 
 /**
  * User authentication
  */
-class Auth extends \toodle\core\BasicModel
+class SystemAuth extends BasicModel
 {
     /**
      * Create user for auth stuff
@@ -14,13 +14,25 @@ class Auth extends \toodle\core\BasicModel
      * @param $username string username
      * @param $password string password
      */
-    public function addUser($login,$username,$password)
+    public function addUser($login,$username,$password,$email)
     {
+      try {
+        // Check does user already exists...
+        if (ORM::findOne('users',' login = ? OR name = ? OR email = ? ',array($login,$username,$email)) != NULL) { return false; }
+      } catch (Exception $e) {
+      }
+      
+      try {
         $userBean = ORM::dispense('users');
         $userBean->login = $login;
         $userBean->name = $username;
         $userBean->password = md5($password);
+        $userBean->email = $email;
         ORM::store($userBean);
+        return true;
+      } catch (Exception $e) {
+        return false;
+      }
     }
 
     /**
@@ -31,8 +43,7 @@ class Auth extends \toodle\core\BasicModel
      */
     public function checkAuth($login,$password)
     {
-        $user = ORM::find('users','login = :login AND password = :password', array(':login'=>$login, ':password'=>md5($password)) );
-        $user = $user[1];
+        $user = ORM::findOne('users','login = :login AND password = :password', array(':login'=>$login, ':password'=>md5($password)) );
         return $user;
     }
 
@@ -56,14 +67,15 @@ class Auth extends \toodle\core\BasicModel
      */
     public function checkCookie()
     {
+        if (!isset($_COOKIE['t-auth'])) return false;
         $cookie = $_COOKIE['t-auth'];
         $cookie = explode(':',$cookie);
         $user_id = $cookie[0];
         $password = $cookie[1];
-        $user = ORM::find('users','id = :id', array(':id'=>$user_id) );
+        $user = ORM::findOne('users','id = :id', array(':id'=>$user_id) );
         if ($user != null)
         {
-            if (md5(md5($user[1]->password)) == $password)
+            if (md5(md5($user->password)) == $password)
             {
                 return true;
             }
@@ -77,16 +89,17 @@ class Auth extends \toodle\core\BasicModel
      */
     public function getUser()
     {
+        if (!isset($_COOKIE['t-auth'])) return null;
         $cookie = $_COOKIE['t-auth'];
         $cookie = explode(':',$cookie);
         $user_id = $cookie[0];
         $password = $cookie[1];
-        $user = ORM::find('users','id = :id', array(':id'=>$user_id) );
+        $user = ORM::findOne('users','id = :id', array(':id'=>$user_id) );
         if ($user != null)
         {
-            if (md5(md5($user[1]->password)) == $password)
+            if (md5(md5($user->password)) == $password)
             {
-                return $user[1];
+                return $user;
             }
         }
         return null;

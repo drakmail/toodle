@@ -12,9 +12,9 @@
  * @link      https://github.com/drakmail/toodle
  */
 
-namespace toodle\core;
+namespace core;
 
-use toodle\core\ORM;
+use core\ORM;
 
 /**
  * Basic model class
