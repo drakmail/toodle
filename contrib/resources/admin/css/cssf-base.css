@@ -179,7 +179,7 @@ hr { color: #ccc; background-color: #ccc; height: 1px; border-width: 0px; }
 
 .icons a, .icon { padding: 1px 0 1px 20px; background-repeat: no-repeat; background-position: left center; }
 
-.content p, .content ul, .content ol, .content dl, .content table, blockquote, pre, .columns, .content img, hr { margin-bottom: 11px; }
+.content p, .content ul, .content ol, .content dl, .content table, blockquote, pre, .columns, hr { margin-bottom: 11px; }
 
 .box { margin: 11px; }
 

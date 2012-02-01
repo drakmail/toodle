@@ -1,0 +1,49 @@
+{% extends "../base.html" %} 
+
+{% block title %} Пользователи {% endblock %}
+
+{% block content %}
+
+<h1>Список пользователей</h1>
+
+<table class="users_list">
+    <tr>
+        <th>ID</th>
+        <th>Логин</th>
+        <th>Имя</th>
+        <th>Email</th>
+        <th>Действия</th>
+    </tr>
+    {% for item in params.users %}
+        <tr>
+            <td><label><input type="checkbox" name="group_users[]" value="{{ item.id }}" /> {{ item.id }}</label></td>
+            <td>{{ item.login }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.email }}</td>
+            <td>
+                <a href="/admin/users/view/{{ item.id }}/">
+                    <img src="{{ module.path }}/images/user.png" alt="просмотр" title="просмотр профиля пользователя"/>
+                </a>
+                <a href="/admin/users/edit/{{ item.id }}/">
+                    <img src="{{ module.path }}/images/user_edit.png" alt="редактирование" title="редактирование пользователя" />
+                </a>
+                <a href="/admin/users/remove/">
+                    <img src="{{ module.path }}/images/user_delete.png" alt="удаление" title="удаление пользователя" />
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<div class="container">
+    <div class="layout-box lb-1">
+        <div class="box">
+            <ul class="menu-h">
+                <li><a href="/admin/users/add/">Добавить пользователя</a></li>
+                <li><a href="/admin/users/group-remove/">Удалить выбранных</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

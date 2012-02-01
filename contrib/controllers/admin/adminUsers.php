@@ -3,7 +3,7 @@
 use core\BasicController;
 use core\ORM;
 
-class AdminController extends BasicController
+class AdminUsersController extends BasicController
 {
     public function init()
     {
@@ -19,9 +19,8 @@ class AdminController extends BasicController
      */
     public function initRoutes()
     {
-        $routes['/'] = 'not_found';
         if ($this->logged) {
-          $routes['^/admin/$'] = 'index';
+          $routes['^/admin/users/$'] = 'users_list';
         } else {
           $routes['^/admin/$'] = 'login';
           $routes['^/admin/login/check/$'] = 'login_check';
@@ -29,10 +28,12 @@ class AdminController extends BasicController
         return $routes;
     }
     
-    public function index()
+    public function users_list()
     {
-        $params = array();
-        return $this->loadView('admin/main.html',$params);
+        $usersModel = $this->loadModel('system/users');
+        $usersList = $usersModel->getUsersList();
+        $params = array('users'=>$usersList);
+        return $this->loadView('admin/users/list.html',$params);
     }
     
     public function login()
@@ -51,12 +52,6 @@ class AdminController extends BasicController
             $params = array('error'=>'Неверный логин или пароль');
             return $this->loadView('admin/login.html',$params);
         }
-    }
-    
-    public function not_found()
-    {
-        $params = array();
-        return $this->loadView('admin/404.html',$params);
     }
 }
 ?> 
