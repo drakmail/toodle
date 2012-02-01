@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+	<title>{% block title %}{% endblock %} - администрирование</title>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<link rel="stylesheet" href="{{ module.path }}/css/cssf-base.css" type="text/css" media="screen" />
+	<!--[if lte IE 6]><link rel="stylesheet" href="{{ module.path }}/css/cssf-ie6.css" type="text/css" media="screen" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="{{ module.path }}/css/cssf-ie7.css" type="text/css" media="screen" /><![endif]-->
+	<script type="text/javascript" src="{{ module.path }}/js/common.js"></script>
+	<script type="text/javascript" src="{{ module.path }}/js/iepngfix_tilebg.js"></script>
+</head>
+<body>
+    
+    <div id="page">
+        <div class="page-layout">
+            <div class="container">
+                <div class="layout-box lb-1">
+                    <div class="box">
+                        <ul class="menu-h-d">
+                            <li><a href="/admin/">Главная</a></li>
+                            <li><a href="#">Пользователи</a>
+                                <ul>
+                                    <li><a href="/admin/users/">Пользователи</a></li>
+                                    <li><a href="/admin/groups/">Группы</a></li>
+                                    <li><a href="/admin/rights/">Правда доступа</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/admin/config/">Настройки</a></li>
+                            <li><a href="/admin/information/">Информация</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="layout-box lb-2">
+                    <div class="box content">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+		<div class="layout-box lb-1">
+                    <div class="box">
+                        <ul class="menu-h">
+                            <li><a href="/">Главная страница</a></li>
+			    <li><a href="http://delta-z.ru/">Дельта Зет</a></li>
+                            <li><a href="http://css-framework.ru/">Разработано на базе css-framework</a></li>
+			    <li><a href="/logout/">Выход</a></li>
+			</ul>
+		    </div>
+		</div>
+	    </div>
+        </div>
+    </div>
+
+</body>
+</html>

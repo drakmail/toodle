@@ -13,6 +13,7 @@ class MainSite extends AbstractSite
   {
     $modules = array(
       'system/auth', //Авторизация
+      'admin/admin', //Администрирование
       '/main'  //Основной сайт
     );
     $this->loadModules($modules);

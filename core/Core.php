@@ -57,13 +57,7 @@ class Core
         $this->path = $path;
         $this->initRequest();
         /* Load main controller */
-        //$module = $this->getModule();
         require_once "contrib/site.php";
-        //$moduleControllerName = ucfirst($module).'Controller';
-        //$controller = new $moduleControllerName($module,$this->getRequestArray());
-        //$method = $routes['method'];
-        //$params = $routes['params'];
-        //$page = $controller->__named($method,$params);
         $site = new \contrib\MainSite($this->getRequestArray());
         $route = $site->searchRoute($path);
         $function = $route['method']['function'];
