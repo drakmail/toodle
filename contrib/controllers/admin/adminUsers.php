@@ -21,9 +21,6 @@ class AdminUsersController extends BasicController
     {
         if ($this->logged) {
           $routes['^/admin/users/$'] = 'users_list';
-        } else {
-          $routes['^/admin/$'] = 'login';
-          $routes['^/admin/login/check/$'] = 'login_check';
         }
         return $routes;
     }
