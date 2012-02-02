@@ -19,7 +19,7 @@ class AdminController extends BasicController
      */
     public function initRoutes()
     {
-        $routes['/'] = 'not_found';
+        $routes['^/admin/'] = 'not_found';
         if ($this->logged) {
           $routes['^/admin/$'] = 'index';
         } else {
@@ -55,6 +55,7 @@ class AdminController extends BasicController
     
     public function not_found()
     {
+        header("HTTP/1.0 404 Not Found");
         $params = array();
         return $this->loadView('admin/404.html',$params);
     }

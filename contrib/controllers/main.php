@@ -26,6 +26,7 @@ class MainController extends BasicController
      */
     public function initRoutes()
     {
+        $routes['^/'] = 'not_found';
         $routes['^/$'] = 'index';
         $routes['^/init/$'] = 'createAdmin';
         $routes['^/number/(?P<number>\d+)/$'] = 'number';
@@ -49,6 +50,13 @@ class MainController extends BasicController
     {
         $params = array('number'=>$number);
         return $this->loadView('number.html',$params);
+    }
+    
+    public function not_found
+    ()
+    {
+        $params = array();
+        return $this->loadView('404.html',$params);
     }
 }
 ?>

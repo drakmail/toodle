@@ -12,10 +12,10 @@ class MainSite extends AbstractSite
   public function init()
   {
     $modules = array(
+      '/main',  //Основной сайт
       'system/auth', //Авторизация
       'admin/admin', //Администрирование (общее)
-      'admin/adminUsers', //Администрирование (пользователи и группы)
-      '/main'  //Основной сайт
+      'admin/adminUsers' //Администрирование (пользователи и группы)
     );
     $this->loadModules($modules);
   }
