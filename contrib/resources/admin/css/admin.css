@@ -4,8 +4,8 @@ table.users_list td {
 
 table.users_list label {
     display: block;
-    padding-left: 15px;
-    text-indent: -15px;
+    padding-left: 25px;
+    text-indent: -30px;
 }
 
 table.users_list input {

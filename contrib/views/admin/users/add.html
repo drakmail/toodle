@@ -1,0 +1,39 @@
+{% extends "../base.html" %} 
+
+{% block title %} Добавление пользователя {% endblock %}
+
+{% block content %}
+
+<h1>Добавление нового пользователя</h1>
+
+<form action="/admin/users/add/commit/" method="POST">
+    <fieldset>
+        <legend>Основная информация</legend>
+        <div class="f-row">
+            <label for="i-forlogin">Логин:</label>
+            <div class="f-inputs"><input type="text" class="i-text" id="i-forlogin" name="login"></div>
+        </div>
+        <div class="f-row">
+            <label for="i-forname">Имя:</label>
+            <div class="f-inputs"><input type="text" class="i-text" id="i-forname" name="name"></div>
+        </div>
+        <div class="f-row">
+            <label for="i-foremail">Email:</label>
+            <div class="f-inputs"><input type="text" class="i-text" id="i-foremail" name="email"></div>
+        </div>
+        <div class="f-row">
+            <label for="i-forpassword">Пароль:</label>
+            <div class="f-inputs"><input type="password" class="i-text" id="i-forpassword" name="password1"></div>
+        </div>
+        <div class="f-row">
+            <label for="i-forpasswordrepeat">Повторить:</label>
+            <div class="f-inputs"><input type="password" class="i-text" id="i-forpasswordrepeat" name="password2"></div>
+        </div>
+    </fieldset>
+	
+    <div class="f-row f-actions">
+            <div class="f-inputs"><input type="submit" class="button" value="Добавить"></div>
+    </div>
+</form>
+
+{% endblock %}

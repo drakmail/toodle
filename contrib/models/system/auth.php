@@ -10,9 +10,9 @@ class SystemAuth extends BasicModel
 {
     /**
      * Create user for auth stuff
-     * @param $login string login
-     * @param $username string username
-     * @param $password string password
+     * @param string $login login
+     * @param string $username username
+     * @param string $password password
      */
     public function addUser($login,$username,$password,$email)
     {
@@ -33,6 +33,25 @@ class SystemAuth extends BasicModel
       } catch (Exception $e) {
         return false;
       }
+    }
+    
+    /**
+     * Remove user by id
+     * @param int $id
+     */
+    public function removeUser($id)
+    {
+      ORM::begin();
+      try {
+        $user = ORM::load('users',$id);
+        ORM::trash($user);
+        ORM::commit();
+        return true;
+      } catch (Exception $e) {
+        ORM::rollback();
+        return false;
+      }
+      
     }
 
     /**
